@@ -1,5 +1,5 @@
 # dwdav
-> Provide some basic methods for working with DW webdav server
+> Provide some basic methods for working with DW webdav server using [`request`](https://www.npmjs.com/package/request)
 
 ## Installation
 
@@ -30,8 +30,10 @@ Below are the default values for the `config` object.
 
 All methods are promise-based, i.e. they return a promise.
 
-- `get`
-- `post`
-- `unzip`
-- `postAndUnzip`
-- `delete`
+- `get()`
+- `post(filePath)`
+- `unzip(filePath)`
+- `postAndUnzip(filePath)`
+- `delete(filePath)`
+
+`filePath` is the path to a local file to be used.

@@ -109,12 +109,12 @@ DWDAV.prototype.postAndUnzip = function (filePath) {
 		});
 };
 
-DWDAV.prototype.delete = function (path) {
+DWDAV.prototype.delete = function (filePath) {
 	var self = this;
 	var req;
 	var promise = new Promise(function (resolve, reject) {
 		req = request(_.extend(self.getOpts(), {
-			uri: '/' + path,
+			uri: '/' + filePath,
 			method: 'DELETE'
 		}), function (err, res, body) {
 			if (err) {
