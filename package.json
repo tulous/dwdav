@@ -1,0 +1,24 @@
+{
+  "name": "dwdav",
+  "version": "1.0.0",
+  "description": "Provide some basic methods to upload file to Demandware webdav server",
+  "repository": "bitbucket:demandware/dwdav",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 0.12"
+  },
+  "scripts": {
+    "test": "tap test.js"
+  },
+  "author": "Tri Nguyen",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^3.10.0",
+    "minimist": "^1.1.1",
+    "request": "^2.58.0",
+    "xml-parser": "^1.2.1"
+  },
+  "devDependencies": {
+    "tap": "^1.3.1"
+  }
+}
