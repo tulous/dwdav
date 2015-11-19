@@ -39,7 +39,7 @@ DWDAV.prototype.get = function () {
 			if (err) {
 				return reject(err);
 			}
-			if (res.statusCode !== 200) {
+			if (res.statusCode >= 400) {
 				return reject(new Error(res.statusMessage));
 			}
 			var response = parse(body);
@@ -75,7 +75,7 @@ DWDAV.prototype.post = function (filePath) {
 			if (err) {
 				return reject(err);
 			}
-			if (res.statusCode !== 200) {
+			if (res.statusCode >= 400) {
 				return reject(new Error(res.statusMessage));
 			}
 			resolve(body);
@@ -100,7 +100,7 @@ DWDAV.prototype.unzip = function (filePath) {
 			if (err) {
 				return reject(err);
 			}
-			if (res.statusCode !== 200) {
+			if (res.statusCode >= 400) {
 				return reject(new Error(res.statusMessage));
 			}
 			resolve(body);
@@ -130,7 +130,7 @@ DWDAV.prototype.delete = function (filePath) {
 				return reject(err);
 			}
 			// it's ok to ignore 404 error if the file is not found
-			if (res.statusCode !== 200 && res.statusCode !== 404) {
+			if (res.statusCode >= 200 && res.statusCode !== 404) {
 				return reject(new Error(res.statusMessage));
 			}
 			resolve(body);
