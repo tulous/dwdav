@@ -5,7 +5,7 @@ var parse = require('xml-parser');
 var _ = require('lodash');
 var fs = require('fs');
 
-function DWDAV(config) {
+function DWDAV (config) {
 	this.config = _.extend({
 		hostname: 'localhost',
 		username: 'admin',
@@ -38,6 +38,9 @@ DWDAV.prototype.get = function () {
 		}), function (err, res, body) {
 			if (err) {
 				return reject(err);
+			}
+			if (res.statusCode !== 200) {
+				return reject(new Error(res.statusMessage));
 			}
 			var response = parse(body);
 			// get "response" children
@@ -72,6 +75,9 @@ DWDAV.prototype.post = function (filePath) {
 			if (err) {
 				return reject(err);
 			}
+			if (res.statusCode !== 200) {
+				return reject(new Error(res.statusMessage));
+			}
 			resolve(body);
 		});
 		fs.createReadStream(filePath).pipe(req);
@@ -93,6 +99,9 @@ DWDAV.prototype.unzip = function (filePath) {
 		}), function (err, res, body) {
 			if (err) {
 				return reject(err);
+			}
+			if (res.statusCode !== 200) {
+				return reject(new Error(res.statusMessage));
 			}
 			resolve(body);
 		});
@@ -119,6 +128,9 @@ DWDAV.prototype.delete = function (filePath) {
 		}), function (err, res, body) {
 			if (err) {
 				return reject(err);
+			}
+			if (res.statusCode !== 200) {
+				return reject(new Error(res.statusMessage));
 			}
 			resolve(body);
 		});
