@@ -130,7 +130,7 @@ DWDAV.prototype.delete = function (filePath) {
 				return reject(err);
 			}
 			// it's ok to ignore 404 error if the file is not found
-			if (res.statusCode >= 200 && res.statusCode !== 404) {
+			if (res.statusCode >= 400 && res.statusCode !== 404) {
 				return reject(new Error(res.statusMessage));
 			}
 			resolve(body);
